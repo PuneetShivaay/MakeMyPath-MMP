@@ -1,0 +1,401 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.5/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<style>
+    .customer {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .customer td,
+    .customer th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    .customer tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .customer tr:hover {
+        background-color: #ddd;
+    }
+
+    .customer th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #04AA6D;
+        color: white;
+    }
+</style>
+
+<table id="customersA" class="customer">
+    Hindi
+</table>
+<br>
+
+<table id="customersJ" class="customer">
+    English
+</table>
+
+
+<script>
+    // function resetVar() {
+    //     var JdataArray = [];
+    //     var typeOfQuestion = [];
+    //     var rowNumber = 0;
+
+    // }
+</script>
+<script>
+
+    var fCode = [];
+    var cCOde = [];
+    var JdataArray = [];
+    var typeOfQuestion = [];
+</script>
+
+<script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-database.js"></script>
+
+<script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+        apiKey: "AIzaSyABq8nxG1EtBXk2jKTZgj67kLoIwmswtig",
+        authDomain: "mmpquestiondatabase.firebaseapp.com",
+        databaseURL: "https://mmpquestiondatabase-default-rtdb.firebaseio.com",
+        projectId: "mmpquestiondatabase",
+        storageBucket: "mmpquestiondatabase.appspot.com",
+        messagingSenderId: "454789438168",
+        appId: "1:454789438168:web:6b245cbb21661da57915ad",
+        measurementId: "G-SB8SP5HHX9"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    var database = firebase.database();
+
+</script>
+
+<div id="hh2">
+    <input type="file" id="input" accept=".xls,.xlsx,.ods">
+</div>
+<pre id="result"></pre>
+<script>
+    $("#input").on("change", function (e) {
+        console.log('sa');
+
+        var file = e.target.files[0];
+        if (!file) return;
+
+        var FR = new FileReader();
+        FR.onload = function (e) {
+            var data = new Uint8Array(e.target.result);
+            var workbook = XLSX.read(data, {
+                type: 'array'
+            });
+            var firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+
+            var result = XLSX.utils.sheet_to_json(firstSheet, {
+                header: 1
+            });
+
+
+            for (var i = 0; i < result.length; i++) {
+                fCode.push(result[i][0]);
+                cCOde.push(result[i][1]);
+            }
+            console.log('s');
+            //console.log(cCOde);
+
+            //getAllIndexes(cCOde,"C-AZWQ");
+            //console.log(cCOde.indexOf('C-AZWQ'))
+        };
+        FR.readAsArrayBuffer(file);
+    });
+
+</script>
+
+
+<div id="hh">
+    <input type="text" id="fname" name="fname" value="">
+
+    <button id="b1" type="button" onclick="readText()">Click Me!</button>
+    <button id="b2" type="button" onclick="tableMaker()">Create Table!</button>
+    <!-- <button type="button" onclick="resetVar()">Reset</button> -->
+
+</div>
+<script>
+    function jsonConcat(o1, o2) {
+        for (var key in o2) {
+            o1[key] = o2[key];
+        }
+        return o1;
+    }
+
+
+    async function readText() {
+        var finalJson = {};
+        var numberFound = 0;
+        var numberFetch = 0;
+        var text = document.getElementById('fname').value;
+        console.log(document.getElementById('fname').value);
+        var fcodeListIn = [];
+        var allQuestionAray = []
+        for (var i = 0; i < (text.length) / 7; i++) {
+
+            console.log((text.length) / 7);
+            var resultArray = getAllIndexes(cCOde, text.substr((i) * 7, 6));
+            console.log(text.substr((i) * 7, 6));
+            console.log(resultArray.length);
+            numberFound = numberFound + resultArray.length;
+            for (var j = 0; j < resultArray.length; j++) {
+                fcodeListIn.push(fCode[resultArray[j]]);
+                console.log(i, fcodeListIn.length);
+            }
+
+        }
+
+        for (var j = 0; j < fcodeListIn.length; j++) {
+            var starCountRef = await firebase.database().ref('Version1/DataBase/QuestionInTag/' + fcodeListIn[j]);
+            await starCountRef.on('value', (snapshot) => {
+                numberFetch++;
+                console.log(j);
+                const data = snapshot.val();
+                if (data != null) {
+                    finalJson = jsonConcat(finalJson, data);
+                }
+                if (numberFetch == numberFound) {
+                    console.log(finalJson);
+                    var keyArray = Object.keys(finalJson);
+                    var langData = 'AJ';
+                    for (var la = 0; la < langData.length; la++) {
+                        JdataArray = [];
+                        typeOfQuestion = [];
+                        var key = langData.substr(la, 1);
+                        for (var i = 0; i < keyArray.length; i++) {
+                            if (finalJson[keyArray[i]].toString().substr(0, 1) == key) {
+                                JdataArray.push(finalJson[keyArray[i]].toString().substr(2, 4));
+                                typeOfQuestion.push(finalJson[keyArray[i]].toString().substr(3, 4));
+                            }
+                        }
+                        tableMaker(key)
+                    }
+
+
+                }
+
+            });
+        }
+    }
+
+</script>
+
+<script>
+    function tableMaker(languageCode) {
+        var rowNumber = 0;
+
+        function TOTALrow() {
+            i = 0;
+            var table = document.getElementById("customers" + languageCode);
+            var row = table.insertRow(rowNumber);
+            rowNumber++;
+            var cella = row.insertCell(0);
+            var cellb = row.insertCell(1);
+            var cellc = row.insertCell(2);
+            var celld = row.insertCell(3);
+            var celle = row.insertCell(4);
+            var cellf = row.insertCell(5);
+            var cellg = row.insertCell(6);
+            var cellh = row.insertCell(7);
+            var celli = row.insertCell(8);
+            var cellj = row.insertCell(9);
+            var cellk = row.insertCell(10);
+            var celll = row.insertCell(11);
+            var cellm = row.insertCell(12);
+            var celln = row.insertCell(13);
+            var cello = row.insertCell(14);
+            var cellp = row.insertCell(15);
+            var cellq = row.insertCell(16);
+            var cellr = row.insertCell(17);
+            var cells = row.insertCell(18);
+            var cellt = row.insertCell(19);
+
+
+            cella.innerHTML = getOccurence('A', typeOfQuestion);
+            cellb.innerHTML = getOccurence('B', typeOfQuestion);
+            cellc.innerHTML = getOccurence('C', typeOfQuestion);
+            celld.innerHTML = getOccurence('D', typeOfQuestion);
+            celle.innerHTML = getOccurence('E', typeOfQuestion);
+            cellf.innerHTML = getOccurence('F', typeOfQuestion);
+            cellg.innerHTML = getOccurence('G', typeOfQuestion);
+            cellh.innerHTML = getOccurence('H', typeOfQuestion);
+            celli.innerHTML = getOccurence('I', typeOfQuestion);
+            cellj.innerHTML = getOccurence('J', typeOfQuestion);
+            cellk.innerHTML = getOccurence('K', typeOfQuestion);
+            celll.innerHTML = getOccurence('L', typeOfQuestion);
+            cellm.innerHTML = getOccurence('M', typeOfQuestion);
+            celln.innerHTML = getOccurence('N', typeOfQuestion);
+            cello.innerHTML = getOccurence('O', typeOfQuestion);
+            cellp.innerHTML = getOccurence('P', typeOfQuestion);
+            cellq.innerHTML = getOccurence('Q', typeOfQuestion);
+            cells.innerHTML = ('Grand Total')
+            cellr.innerHTML = (getOccurence('A', typeOfQuestion) + getOccurence('B', typeOfQuestion) + getOccurence('C', typeOfQuestion) + getOccurence('D', typeOfQuestion) + getOccurence('E', typeOfQuestion) + getOccurence('F', typeOfQuestion) + getOccurence('G', typeOfQuestion) + getOccurence('H', typeOfQuestion) + getOccurence('I', typeOfQuestion) + getOccurence('J', typeOfQuestion) + getOccurence('K', typeOfQuestion) + getOccurence('L', typeOfQuestion) + getOccurence('M', typeOfQuestion) + getOccurence('N', typeOfQuestion) + getOccurence('O', typeOfQuestion) + getOccurence('P', typeOfQuestion) + getOccurence('Q', typeOfQuestion) + getOccurence('R', typeOfQuestion));
+            cellt.innerHTML = document.getElementById('fname').value
+
+
+
+
+            rowNumber++;
+        }
+
+        function myFunction(levelString) {
+
+            function heading() {
+                var table = document.getElementById("customers" + languageCode);
+                var row = table.insertRow(rowNumber);
+                rowNumber++;
+                var cella = row.insertCell(0);
+                var cellb = row.insertCell(1);
+                var cellc = row.insertCell(2);
+                var celld = row.insertCell(3);
+                var celle = row.insertCell(4);
+                var cellf = row.insertCell(5);
+                var cellg = row.insertCell(6);
+                var cellh = row.insertCell(7);
+                var celli = row.insertCell(8);
+                var cellj = row.insertCell(9);
+                var cellk = row.insertCell(10);
+                var celll = row.insertCell(11);
+                var cellm = row.insertCell(12);
+                var celln = row.insertCell(13);
+                var cello = row.insertCell(14);
+                var cellp = row.insertCell(15);
+                var cellq = row.insertCell(16);
+                var cellr = row.insertCell(17);
+                var cells = row.insertCell(18);
+                var cellt = row.insertCell(19);
+
+
+
+
+                cella.innerHTML = 'Subjective Number';
+                cellb.innerHTML = 'Matrix Match Grid';
+                cellc.innerHTML = 'Matrix Match Single';
+                celld.innerHTML = 'True False';
+                celle.innerHTML = 'Assertion';
+                cellf.innerHTML = 'Multiple Choice';
+                cellg.innerHTML = 'Single Choice';
+                cellh.innerHTML = 'Integer';
+                celli.innerHTML = 'Fib';
+                cellj.innerHTML = 'Subjective';
+                cellk.innerHTML = 'Subjective Answer';
+                celll.innerHTML = 'Single Drop Down';
+                cellm.innerHTML = 'Multiple Drop Down';
+                celln.innerHTML = 'Passage';
+                cello.innerHTML = 'Linked';
+                cellp.innerHTML = 'Multiple FIB';
+                cellq.innerHTML = '?';
+                cellr.innerHTML = 'Total';
+                cells.innerHTML = "Level " + rowNumber;
+                cellt.innerHTML = "C-Code";
+
+            }
+
+            if (rowNumber == 0) {
+                heading();
+            }
+            var table = document.getElementById("customers" + languageCode);
+            var row = table.insertRow(rowNumber);
+            rowNumber++;
+            var cella = row.insertCell(0);
+            var cellb = row.insertCell(1);
+            var cellc = row.insertCell(2);
+            var celld = row.insertCell(3);
+            var celle = row.insertCell(4);
+            var cellf = row.insertCell(5);
+            var cellg = row.insertCell(6);
+            var cellh = row.insertCell(7);
+            var celli = row.insertCell(8);
+            var cellj = row.insertCell(9);
+            var cellk = row.insertCell(10);
+            var celll = row.insertCell(11);
+            var cellm = row.insertCell(12);
+            var celln = row.insertCell(13);
+            var cello = row.insertCell(14);
+            var cellp = row.insertCell(15);
+            var cellq = row.insertCell(16);
+            var cellr = row.insertCell(17);
+            var cells = row.insertCell(18);
+
+
+            cella.innerHTML = getOccurence(levelString + 'A');
+            cellb.innerHTML = getOccurence(levelString + 'B');
+            cellc.innerHTML = getOccurence(levelString + 'C');
+            celld.innerHTML = getOccurence(levelString + 'D');
+            celle.innerHTML = getOccurence(levelString + 'E');
+            cellf.innerHTML = getOccurence(levelString + 'F');
+            cellg.innerHTML = getOccurence(levelString + 'G');
+            cellh.innerHTML = getOccurence(levelString + 'H');
+            celli.innerHTML = getOccurence(levelString + 'I');
+            cellj.innerHTML = getOccurence(levelString + 'J');
+            cellk.innerHTML = getOccurence(levelString + 'K');
+            celll.innerHTML = getOccurence(levelString + 'L');
+            cellm.innerHTML = getOccurence(levelString + 'M');
+            celln.innerHTML = getOccurence(levelString + 'N');
+            cello.innerHTML = getOccurence(levelString + 'O');
+            cellp.innerHTML = getOccurence(levelString + 'P');
+            cellq.innerHTML = getOccurence(levelString + 'Q');
+            cells.innerHTML = "Level " + (rowNumber - 1).toString();
+            cellr.innerHTML = (getOccurence(levelString + 'A') + getOccurence(levelString + 'B') + getOccurence(levelString + 'C') + getOccurence(levelString + 'D') + getOccurence(levelString + 'E') + getOccurence(levelString + 'F') + getOccurence(levelString + 'G') + getOccurence(levelString + 'H') + getOccurence(levelString + 'I') + getOccurence(levelString + 'J') + getOccurence(levelString + 'K') + getOccurence(levelString + 'L') + getOccurence(levelString + 'M') + getOccurence(levelString + 'N') + getOccurence(levelString + 'O') + getOccurence(levelString + 'P') + getOccurence(levelString + 'Q'));
+
+        }
+
+        myFunction('A');
+        myFunction('B');
+        myFunction('C');
+        myFunction('D');
+        myFunction('E');
+        myFunction('F');
+        myFunction('G');
+        myFunction('H');
+        myFunction('I');
+        myFunction('J');
+        myFunction('K');
+        // myFunction('Total');
+        TOTALrow();
+        document.getElementById("hh").style.display = "none";
+        document.getElementById("hh2").style.display = "none";
+    }
+
+    function getOccurence(stringToCheck, scanArray) {
+        if (scanArray == null) {
+            scanArray = JdataArray;
+        }
+        var count = 0;
+        for (var i = 0; i < scanArray.length; i++) {
+            if (stringToCheck == scanArray[i]) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    function getAllIndexes(arr, val) {
+        var indexes = [],
+            i = -1;
+        while ((i = arr.indexOf(val, i + 1)) != -1) {
+            indexes.push(i);
+        }
+        return indexes;
+    }
+
+
+
+</script>
