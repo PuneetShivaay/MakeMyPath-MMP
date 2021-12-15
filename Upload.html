@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-firestore.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+    <style>
+        .customers {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            //width: 100%;
+        }
+
+        .customers td,
+        .customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        .customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .customers tr:hover {
+            background-color: #ddd;
+        }
+
+        .customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="playBefore()">FIND</button>
+    <!--find Button-->
+
+    <table class="customers" id="customers10">
+        <!--class name and id-->
+
+
+    </table>
+
+
+
+
+
+
+
+    <script>
+        var fArray = []; //<!--array stores category tag and data -->
+        
+        
+
+fArray.push("23");	fArray.push("CBSE--1st CBSE--Environmental Studies--Incredible India--Clay Handicrafts--Making of Pottery");
+fArray.push("23");	fArray.push("CBSE--1st CBSE--Environmental Studies--Incredible India--Clay Handicrafts--Potter's Tools");
+fArray.push("23");	fArray.push("CBSE--1st CBSE--Environmental Studies--Incredible India--Clay Handicrafts--Pottery");
+fArray.push("23");	fArray.push("CBSE--1st CBSE--Environmental Studies--Incredible India--Clay Handicrafts--Pottery In India");
+fArray.push("23");	fArray.push("CBSE--1st CBSE--Environmental Studies--Incredible India--Exploring My India--Famous National Parks of India");
+fArray.push("23");	fArray.push("CBSE--1st CBSE--Environmental Studies--Incredible India--Exploring My India--Handicrafts");
+fArray.push("23");	fArray.push("CBSE--1st CBSE--Environmental Studies--Incredible India--Exploring My India--National Parks");
+fArray.push("23");	fArray.push("CBSE--1st CBSE--Environmental Studies--Incredible India--Exploring My India--Popular Handicrafts of India");
+fArray.push("23");	fArray.push("CBSE--1st CBSE--Environmental Studies--Incredible India--Soil, Till And Toil--Agriculture in India");
+fArray.push("23");	fArray.push("CBSE--1st CBSE--Environmental Studies--Incredible India--Soil, Till And Toil--Cash Crops");
+fArray.push("23");	fArray.push("CBSE--1st CBSE--Environmental Studies--Incredible India--Soil, Till And Toil--Examples of Food Crops");
+fArray.push("23");	fArray.push("CBSE--1st CBSE--Environmental Studies--Incredible India--Soil, Till And Toil--Examples of Livestock Products");
+fArray.push("23");	fArray.push("CBSE--1st CBSE--Environmental Studies--Incredible India--Soil, Till And Toil--Fibers For Clothes");
+fArray.push("23");	fArray.push("CBSE--1st CBSE--Environmental Studies--Incredible India--Soil, Till And Toil--Food Crops");
+fArray.push("23");	fArray.push("CBSE--1st CBSE--Environmental Studies--Incredible India--Soil, Till And Toil--Main Divisions of Agriculture");
+fArray.push("23");	fArray.push("CBSE--1st CBSE--Environmental Studies--Incredible India--Soil, Till And Toil--Names of Some Millets");
+fArray.push("23");	fArray.push("CBSE--1st CBSE--Environmental Studies--Incredible India--Soil, Till And Toil--Natural Resources for Agriculture");
+fArray.push("23");	fArray.push("CBSE--1st CBSE--Environmental Studies--Incredible India--Soil, Till And Toil--Some Cash Crops of India");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Algebra--Algebraic Expressions--Addition and subtraction of algebraic expressions");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Algebra--Algebraic Expressions--Formulas and rules");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Algebra--Algebraic Expressions--Like and unlike terms");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Algebra--Algebraic Expressions--Monomials, Binomials, Trinomials and Polynomials");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Algebra--Algebraic Expressions--Terms of an expression");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Algebra--Algebraic Expressions--Value of an expression");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Algebra--Algebraic Expressions--Variables and constants");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Algebra--Logical Reasoning--Patterns and Puzzles");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Algebra--Simple Equations--Application of equations");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Algebra--Simple Equations--Basics of an Equation");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Algebra--Simple Equations--Formation of Equations");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Algebra--Simple Equations--Solution of an Equation");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Arithmetic--Comparing Quantities--Comparison of Quantities Using Ratio");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Arithmetic--Comparing Quantities--Cost Price and Selling Price");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Arithmetic--Comparing Quantities--Equivalent Ratios");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Arithmetic--Comparing Quantities--Percentage");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Arithmetic--Comparing Quantities--Simple Interest");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Arithmetic--Comparing Quantities--Use of Percentage");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Arithmetic--Exponents and Powers--Basics of Exponents");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Arithmetic--Exponents and Powers--Decimal Number System");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Arithmetic--Exponents and Powers--Expressing Large Number in Standard Form");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Arithmetic--Exponents and Powers--Law of Exponents");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Arithmetic--Fractions and Decimals--Basics of Decimal Numbers");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Arithmetic--Fractions and Decimals--Basics of Fractions");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Arithmetic--Fractions and Decimals--Division of Decimal Numbers");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Arithmetic--Fractions and Decimals--Division of Fractions");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Arithmetic--Fractions and Decimals--Multiplication of Decimal Numbers");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Arithmetic--Fractions and Decimals--Multiplication of Fractions");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Arithmetic--Integers--Division of Integers");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Arithmetic--Integers--Integer and its Representation on Number Line");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Arithmetic--Integers--Multiplication of Integers");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Arithmetic--Integers--Properties of Addition and Subtraction of Integers");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Arithmetic--Integers--Properties of Division of Integers");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Arithmetic--Integers--Properties of Multiplication of Integers");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Arithmetic--Rational Numbers--Comparison of Rational Numbers");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Arithmetic--Rational Numbers--Operations on Rational Numbers");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Arithmetic--Rational Numbers--Rational Number and its Representation on Number Line");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Arithmetic--Rational Numbers--Rational Number between Two Rational Numbers");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Geometry--Congruence of Triangles--Congruence among right-angled triangles");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Geometry--Congruence of Triangles--Congruence and congruence of plane figures");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Geometry--Congruence of Triangles--Criteria for congruence of triangles");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Geometry--Congruence of Triangles--Introduction to Congruence of Triangles");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Geometry--Lines and Angles--Checking for parallel lines");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Geometry--Lines and Angles--Pair of lines");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Geometry--Lines and Angles--Related angles");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Geometry--Perimeter and Area--Application of perimeters and area");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Geometry--Perimeter and Area--Area of a parallelogram");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Geometry--Perimeter and Area--Area of a triangle");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Geometry--Perimeter and Area--Circles");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Geometry--Perimeter and Area--Conversion of units");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Geometry--Perimeter and Area--Perimeter and area of squares and rectangle");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Geometry--Practical Geometry--Construction of a Line Parallel to a Given Line");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Geometry--Practical Geometry--Construction of right-angled triangle using RHS criterion");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Geometry--Practical Geometry--Construction of triangles");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Geometry--Symmetry--Line symmetry and rotational symmetry");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Geometry--Symmetry--Lines of symmetry");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Geometry--Symmetry--Lines of symmetry for regular polygons");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Geometry--Symmetry--Rotational symmetry");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Geometry--The Triangle and its Properties--Altitude of a triangle");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Geometry--The Triangle and its Properties--Angle sum property of a triangle");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Geometry--The Triangle and its Properties--Equilateral and isosceles triangle");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Geometry--The Triangle and its Properties--Exterior angle of a triangle and its property");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Geometry--The Triangle and its Properties--Medians of a triangle");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Geometry--The Triangle and its Properties--Right angled triangles and Pythagoras property");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Geometry--The Triangle and its Properties--Sum of the lengths of two sides of a triangle");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Geometry--The Triangle and its Properties--Triangle and its types");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Geometry--Visualizing Solid Shapes--Drawing Solids in Flat Surface (2D Drawing of a 3D)");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Geometry--Visualizing Solid Shapes--Faces, Edges and Vertices");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Geometry--Visualizing Solid Shapes--Nets for Building 3D Shapes");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Geometry--Visualizing Solid Shapes--Plane Figures and Solid Shapes");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Geometry--Visualizing Solid Shapes--Viewing Different Sections of a Solid");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Statistics--Data Handling--Arithmetic mean");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Statistics--Data Handling--Bar Graphs");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Statistics--Data Handling--Basics of Data Handling");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Statistics--Data Handling--Chance and probability");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Statistics--Data Handling--Median");
+fArray.push("1");	fArray.push("CBSE--7th CBSE--Mathematics--Statistics--Data Handling--Mode");
+fArray.push("2");	fArray.push("CBSE--7th CBSE--Science--Biology--Forests: Our Lifeline--Conservation of Forest and Wildlife");
+fArray.push("2");	fArray.push("CBSE--7th CBSE--Science--Biology--Forests: Our Lifeline--Deforestation");
+fArray.push("2");	fArray.push("CBSE--7th CBSE--Science--Biology--Forests: Our Lifeline--Forest Ecosystem");
+fArray.push("2");	fArray.push("CBSE--7th CBSE--Science--Biology--Nutrition in Animals--Different Modes of Food Intake");
+fArray.push("2");	fArray.push("CBSE--7th CBSE--Science--Biology--Nutrition in Animals--Digestion in Grass Eating Animals");
+fArray.push("2");	fArray.push("CBSE--7th CBSE--Science--Biology--Nutrition in Animals--Digestion in Humans");
+fArray.push("2");	fArray.push("CBSE--7th CBSE--Science--Biology--Nutrition in Animals--Feeding and Digestion in Amoeba");
+fArray.push("2");	fArray.push("CBSE--7th CBSE--Science--Biology--Nutrition in Animals--Introduction to Nutrition in Animals");
+fArray.push("2");	fArray.push("CBSE--7th CBSE--Science--Biology--Nutrition in Plant--Introduction to Nutrition");
+fArray.push("2");	fArray.push("CBSE--7th CBSE--Science--Biology--Nutrition in Plant--Mode of Nutrition in Plants");
+fArray.push("2");	fArray.push("CBSE--7th CBSE--Science--Biology--Nutrition in Plant--Other Modes of Nutrition");
+fArray.push("2");	fArray.push("CBSE--7th CBSE--Science--Biology--Nutrition in Plant--Photosynthesis");
+fArray.push("2");	fArray.push("CBSE--7th CBSE--Science--Biology--Nutrition in Plant--Replenishment of the Nutrients in the Soil");
+fArray.push("2");	fArray.push("CBSE--7th CBSE--Science--Biology--Reproduction in Plants--Fruits and Seed Formation");
+fArray.push("2");	fArray.push("CBSE--7th CBSE--Science--Biology--Reproduction in Plants--Modes of Reproduction");
+fArray.push("2");	fArray.push("CBSE--7th CBSE--Science--Biology--Reproduction in Plants--Seed Dispersal");
+fArray.push("2");	fArray.push("CBSE--7th CBSE--Science--Biology--Reproduction in Plants--Sexual Reproduction");
+fArray.push("2");	fArray.push("CBSE--7th CBSE--Science--Biology--Respiration in Organisms--Breathing");
+fArray.push("2");	fArray.push("CBSE--7th CBSE--Science--Biology--Respiration in Organisms--Breathing in other animals");
+fArray.push("2");	fArray.push("CBSE--7th CBSE--Science--Biology--Respiration in Organisms--Human Respiratory System");
+fArray.push("2");	fArray.push("CBSE--7th CBSE--Science--Biology--Respiration in Organisms--Respiration");
+fArray.push("2");	fArray.push("CBSE--7th CBSE--Science--Biology--Respiration in Organisms--Respiration in Plants");
+fArray.push("2");	fArray.push("CBSE--7th CBSE--Science--Biology--Transportation in Animals and Plants--Circulatory System");
+fArray.push("2");	fArray.push("CBSE--7th CBSE--Science--Biology--Transportation in Animals and Plants--Excretory System");
+fArray.push("2");	fArray.push("CBSE--7th CBSE--Science--Biology--Transportation in Animals and Plants--Transport of substances in Plants");
+fArray.push("2");	fArray.push("CBSE--7th CBSE--Science--Biology--Transportation in Animals and Plants--Transportation in Unicellular Organisms");
+fArray.push("2");	fArray.push("CBSE--7th CBSE--Science--Biology--Weather, Climate and Adaptations of Animals to Climate--Climate");
+fArray.push("2");	fArray.push("CBSE--7th CBSE--Science--Biology--Weather, Climate and Adaptations of Animals to Climate--Climate and Adaptation");
+fArray.push("2");	fArray.push("CBSE--7th CBSE--Science--Biology--Weather, Climate and Adaptations of Animals to Climate--Weather");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Acids, Bases and Salts--Introduction to Acids and Bases");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Acids, Bases and Salts--Natural Indicators");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Acids, Bases and Salts--Neutralisations");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Acids, Bases and Salts--Neutralisations in Everyday Life");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Fibre to Fabric--Animal Fibres- Silk");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Fibre to Fabric--Animal Fibres- Wool");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Fibre to Fabric--Animals that Yield Wool");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Fibre to Fabric--From Cocoon to Silk");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Fibre to Fabric--From Fibres to Wool");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Fibre to Fabric--Life History of Silk Moth");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Matter--Chemical Equations");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Matter--Chemical Formulae");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Matter--Chemical Symbols");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Matter--Compounds");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Matter--Elements");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Matter--Introduction to Matter");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Matter--Mixtures");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Physical and Chemical Changes--Changes in Daily life");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Physical and Chemical Changes--Chemical Changes");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Physical and Chemical Changes--Crystallisation");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Physical and Chemical Changes--Physical Changes");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Physical and Chemical Changes--Rusting of Iron");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Soil--Introduction to Soil");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Soil--Properties of Soil");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Soil--Soil Profile");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Soil--Soil Types");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Soil--Uses of Soil (Soil And Crops)");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Wastewater Story--Alternative Arrangement for sewage disposal");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Wastewater Story--Better Housekeeping Practices");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Wastewater Story--Importance of Water");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Wastewater Story--Sanitation and Disease");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Wastewater Story--Sanitation at Public Places");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Wastewater Story--Sewerage System");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Wastewater Story--Wastewater treatment plant");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Water: A Precious Resource--Depletion of Water Table");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Water: A Precious Resource--Forms of Water");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Water: A Precious Resource--Groundwater- Important Source of Water");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Water: A Precious Resource--Need and Consumption of Water");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Water: A Precious Resource--Sources of Water");
+fArray.push("3");	fArray.push("CBSE--7th CBSE--Science--Chemistry--Water: A Precious Resource--Water Management");
+fArray.push("4");	fArray.push("CBSE--7th CBSE--Science--Physics--Electric Current and its Effects--Electric Bell");
+fArray.push("4");	fArray.push("CBSE--7th CBSE--Science--Physics--Electric Current and its Effects--Electromagnet");
+fArray.push("4");	fArray.push("CBSE--7th CBSE--Science--Physics--Electric Current and its Effects--Heating Effect of Electric Current");
+fArray.push("4");	fArray.push("CBSE--7th CBSE--Science--Physics--Electric Current and its Effects--Magnetic Effect of Electric Current");
+fArray.push("4");	fArray.push("CBSE--7th CBSE--Science--Physics--Electric Current and its Effects--Symbols of Electronic Components");
+fArray.push("4");	fArray.push("CBSE--7th CBSE--Science--Physics--Heat--Heat Transfer by Conduction");
+fArray.push("4");	fArray.push("CBSE--7th CBSE--Science--Physics--Heat--Heat Transfer by Convection");
+fArray.push("4");	fArray.push("CBSE--7th CBSE--Science--Physics--Heat--Heat transfer by Radiation");
+fArray.push("4");	fArray.push("CBSE--7th CBSE--Science--Physics--Heat--Hot and Cold");
+fArray.push("4");	fArray.push("CBSE--7th CBSE--Science--Physics--Heat--Kinds of Clothes we wear in Summer and Winter");
+fArray.push("4");	fArray.push("CBSE--7th CBSE--Science--Physics--Heat--Laboratory Thermometer");
+fArray.push("4");	fArray.push("CBSE--7th CBSE--Science--Physics--Heat--Temperature and its Measurements");
+fArray.push("4");	fArray.push("CBSE--7th CBSE--Science--Physics--Light--Image Formed by Plane Mirror");
+fArray.push("4");	fArray.push("CBSE--7th CBSE--Science--Physics--Light--Images formed by Lenses");
+fArray.push("4");	fArray.push("CBSE--7th CBSE--Science--Physics--Light--Images formed by Spherical Mirrors");
+fArray.push("4");	fArray.push("CBSE--7th CBSE--Science--Physics--Light--Light travels along a straight line");
+fArray.push("4");	fArray.push("CBSE--7th CBSE--Science--Physics--Light--Reflection of Light");
+fArray.push("4");	fArray.push("CBSE--7th CBSE--Science--Physics--Light--Sunlight : White or Coloured");
+fArray.push("4");	fArray.push("CBSE--7th CBSE--Science--Physics--Motion and Time--Distance-Time Graph");
+fArray.push("4");	fArray.push("CBSE--7th CBSE--Science--Physics--Motion and Time--Measurement of Time");
+fArray.push("4");	fArray.push("CBSE--7th CBSE--Science--Physics--Motion and Time--Measuring Speed");
+fArray.push("4");	fArray.push("CBSE--7th CBSE--Science--Physics--Motion and Time--Motion");
+fArray.push("4");	fArray.push("CBSE--7th CBSE--Science--Physics--Motion and Time--Pie Chart and Bar Graph Representation");
+fArray.push("4");	fArray.push("CBSE--7th CBSE--Science--Physics--Motion and Time--Speed");
+fArray.push("4");	fArray.push("CBSE--7th CBSE--Science--Physics--Motion and Time--Uniform and Non-Uniform Motion");
+fArray.push("4");	fArray.push("CBSE--7th CBSE--Science--Physics--Winds, Storms and Cyclones--Air Exerts Pressure");
+fArray.push("4");	fArray.push("CBSE--7th CBSE--Science--Physics--Winds, Storms and Cyclones--Destruction Caused by Cyclones");
+fArray.push("4");	fArray.push("CBSE--7th CBSE--Science--Physics--Winds, Storms and Cyclones--Effect of Heat on Air");
+fArray.push("4");	fArray.push("CBSE--7th CBSE--Science--Physics--Winds, Storms and Cyclones--Effective Safety Measures");
+fArray.push("4");	fArray.push("CBSE--7th CBSE--Science--Physics--Winds, Storms and Cyclones--Effects of Uneven Heating on the Earth");
+fArray.push("4");	fArray.push("CBSE--7th CBSE--Science--Physics--Winds, Storms and Cyclones--Low Pressure due to High Speed Wind");
+fArray.push("4");	fArray.push("CBSE--7th CBSE--Science--Physics--Winds, Storms and Cyclones--Role of Advanced Technology in Cyclone Warning");
+fArray.push("4");	fArray.push("CBSE--7th CBSE--Science--Physics--Winds, Storms and Cyclones--Thunderstorms and Cyclones");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        var codesArray = []
+        count = 0;
+        var codeByTeacher;
+
+        function playBefore() {
+
+            console.log(fArray[0]);
+            for (var i = 0; i < fArray.length; i = i + 2) {
+                console.log(fArray[i]);
+                if (codesArray.includes(fArray[i])) {
+                    //console.log(true);
+                } else {
+                    codesArray.push(fArray[i]);
+                    // console.log(false);
+                }
+            }
+            console.log(codesArray);
+
+
+            runMyDataArray(count)
+
+        }
+
+        function runMyDataArray(count) {
+            if (count >= codesArray.length) {
+                console.log("runMyDataArray return", count)
+                return;
+            } else {
+                codeByTeacher = codesArray[count];
+                dataArray = [];
+                for (var i = 1; i < fArray.length; i = i + 2) {
+
+                    if (fArray[i - 1] == codesArray[count]) {
+                        //console.log(codesArray[count], fArray[i])
+                        dataArray.push(fArray[i]);
+                    }
+                }
+                console.log(dataArray);
+                nameOfTOpic(dataArray[0]);
+                heading()
+
+            }
+            play();
+        }
+        var dataArray = [];
+    </script>
+    <script>
+        var dataArray = [];
+        var rowNumber = 0;
+        var numberOfTImesTheFunctionWasHit = 0;
+        var finalTableELemenrtCount = 0
+
+        function nameOfTOpic(nameOfTOpic) {
+
+            var table = document.getElementById("customers10");
+            var row = table.insertRow(rowNumber);
+            var cell1 = row.insertCell(0);
+
+            cell1.innerHTML = nameOfTOpic;
+            rowNumber++;
+        }
+
+
+        //var rName = dataArray[0].valueOf();
+
+        document.getElementById("customers10").innerHTML = dataArray[0];
+        var arrayToStoreTotal = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+        function myFunctionpp(aa, pp, kk) {
+            numberOfTImesTheFunctionWasHit++
+
+            if (numberOfTImesTheFunctionWasHit - 2 >= (dataArray.length - 1) * 12) {
+
+                finalTableELemenrtCount++;
+
+                var table = document.getElementById("customers10");
+                var row = table.insertRow(rowNumber);
+                var cell0 = row.insertCell(0);
+                var cell1 = row.insertCell(1);
+                var cell2 = row.insertCell(2);
+                var cell3 = row.insertCell(3);
+                var cell4 = row.insertCell(4);
+                var cell5 = row.insertCell(5);
+                var cell6 = row.insertCell(6);
+                var cell7 = row.insertCell(7);
+                var cell8 = row.insertCell(8);
+                var cell9 = row.insertCell(9);
+                var cell10 = row.insertCell(10);
+                var cell11 = row.insertCell(11);
+                var cell12 = row.insertCell(12);
+                var cell13 = row.insertCell(13);
+                var cell14 = row.insertCell(14);
+                var cell15 = row.insertCell(15);
+
+                cell0.innerHTML = codeByTeacher;
+                cell1.innerHTML = aa;
+                cell2.innerHTML = kk;
+                cell3.innerHTML = getOccurrence(pp, "Assertion");
+                cell4.innerHTML = getOccurrence(pp, "FillInTheBlanks");
+                cell5.innerHTML = getOccurrence(pp, "Integer");
+                cell6.innerHTML = getOccurrence(pp, "MatrixMatchGrid");
+                cell7.innerHTML = getOccurrence(pp, "MatrixMatchSingleChoice");
+                cell8.innerHTML = getOccurrence(pp, "MultipleChoice");
+                cell9.innerHTML = getOccurrence(pp, "MultipleFillInTheBlanks");
+                cell10.innerHTML = getOccurrence(pp, "SingleChoice");
+                cell11.innerHTML = getOccurrence(pp, "SingleDropDown");
+                cell12.innerHTML = getOccurrence(pp, "SubjectiveAnswer");
+                cell13.innerHTML = getOccurrence(pp, "Subjective");
+                cell14.innerHTML = getOccurrence(pp, "SubjectiveNumerical");
+                cell15.innerHTML = getOccurrence(pp, "TrueFalse");
+                i = 0
+                arrayToStoreTotal[i++] = arrayToStoreTotal[i - 1] + kk;
+                arrayToStoreTotal[i++] = arrayToStoreTotal[i - 1] + getOccurrence(pp, "Assertion");
+                arrayToStoreTotal[i++] = arrayToStoreTotal[i - 1] + getOccurrence(pp, "FillInTheBlanks");
+                arrayToStoreTotal[i++] = arrayToStoreTotal[i - 1] + getOccurrence(pp, "Integer");
+                arrayToStoreTotal[i++] = arrayToStoreTotal[i - 1] + getOccurrence(pp, "MatrixMatchGrid");
+                arrayToStoreTotal[i++] = arrayToStoreTotal[i - 1] + getOccurrence(pp, "MatrixMatchSingleChoice");
+                arrayToStoreTotal[i++] = arrayToStoreTotal[i - 1] + getOccurrence(pp, "MultipleChoice");
+                arrayToStoreTotal[i++] = arrayToStoreTotal[i - 1] + getOccurrence(pp, "MultipleFillInTheBlanks");
+                arrayToStoreTotal[i++] = arrayToStoreTotal[i - 1] + getOccurrence(pp, "SingleChoice");
+                arrayToStoreTotal[i++] = arrayToStoreTotal[i - 1] + getOccurrence(pp, "SingleDropDown");
+                arrayToStoreTotal[i++] = arrayToStoreTotal[i - 1] + getOccurrence(pp, "SubjectiveAnswer");
+                arrayToStoreTotal[i++] = arrayToStoreTotal[i - 1] + getOccurrence(pp, "Subjective");
+                arrayToStoreTotal[i++] = arrayToStoreTotal[i - 1] + getOccurrence(pp, "SubjectiveNumerical");
+                arrayToStoreTotal[i++] = arrayToStoreTotal[i - 1] + getOccurrence(pp, "TrueFalse");
+                rowNumber++;
+
+                console.log(finalTableELemenrtCount, getOccurrence(pp, "Subjective"));
+
+
+                if (finalTableELemenrtCount == 11) {
+                    TOTALrow(arrayToStoreTotal)
+                    dataArray = [];
+                    numberOfTImesTheFunctionWasHit = 0;
+                    finalTableELemenrtCount = 0
+                    count++;
+                    dataNumber = 0
+                    //heading();
+                    D0 = [];
+                    D1 = [];
+                    D2 = [];
+                    D3 = [];
+                    D4 = [];
+                    D5 = [];
+                    D6 = [];
+                    D7 = [];
+                    D8 = [];
+                    D9 = [];
+                    D10 = [];
+                    DM = [];
+                    arrayToStoreTotal = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                    runMyDataArray(count);
+                } else {
+                    console.log('Else', finalTableELemenrtCount)
+                }
+
+
+            } else {}
+        }
+
+
+        function TOTALrow(totalNumberArray) {
+            i = 0;
+            var table = document.getElementById("customers10");
+            var row = table.insertRow(rowNumber);
+            var cell0 = row.insertCell(0);
+            var cell1 = row.insertCell(1);
+            var cell2 = row.insertCell(2);
+            var cell3 = row.insertCell(3);
+            var cell4 = row.insertCell(4);
+            var cell5 = row.insertCell(5);
+            var cell6 = row.insertCell(6);
+            var cell7 = row.insertCell(7);
+            var cell8 = row.insertCell(8);
+            var cell9 = row.insertCell(9);
+            var cell10 = row.insertCell(10);
+            var cell11 = row.insertCell(11);
+            var cell12 = row.insertCell(12);
+            var cell13 = row.insertCell(13);
+            var cell14 = row.insertCell(14);
+            var cell15 = row.insertCell(15);
+            cell0.innerHTML = codeByTeacher;
+            cell1.innerHTML = "TOTAL";
+            cell2.innerHTML = totalNumberArray[i++];
+            cell3.innerHTML = totalNumberArray[i++];
+            cell4.innerHTML = totalNumberArray[i++];
+            cell5.innerHTML = totalNumberArray[i++];
+            cell6.innerHTML = totalNumberArray[i++];
+            cell7.innerHTML = totalNumberArray[i++];
+            cell8.innerHTML = totalNumberArray[i++];
+            cell9.innerHTML = totalNumberArray[i++];
+            cell10.innerHTML = totalNumberArray[i++];
+            cell11.innerHTML = totalNumberArray[i++];
+            cell12.innerHTML = totalNumberArray[i++];
+            cell13.innerHTML = totalNumberArray[i++];
+            cell14.innerHTML = totalNumberArray[i++];
+            cell15.innerHTML = totalNumberArray[i++];
+
+            rowNumber++;
+        }
+
+
+
+
+
+        function heading() {
+
+            var table = document.getElementById("customers10");
+            var row = table.insertRow(rowNumber);
+            var cell0 = row.insertCell(0);
+            var cell1 = row.insertCell(1);
+            var cell2 = row.insertCell(2);
+            var cell3 = row.insertCell(3);
+            var cell4 = row.insertCell(4);
+            var cell5 = row.insertCell(5);
+            var cell6 = row.insertCell(6);
+            var cell7 = row.insertCell(7);
+            var cell8 = row.insertCell(8);
+            var cell9 = row.insertCell(9);
+            var cell10 = row.insertCell(10);
+            var cell11 = row.insertCell(11);
+            var cell12 = row.insertCell(12);
+            var cell13 = row.insertCell(13);
+            var cell14 = row.insertCell(14);
+            var cell15 = row.insertCell(15);
+            cell0.innerHTML = "ChapterNumber";
+            cell1.innerHTML = "Level";
+            cell2.innerHTML = "Total";
+            cell3.innerHTML = "Assertion";
+            cell4.innerHTML = "FillInTheBlanks";
+            cell5.innerHTML = "Integer";
+            cell6.innerHTML = "MatrixMatchGrid";
+            cell7.innerHTML = "MatrixMatchSingleChoice";
+            cell8.innerHTML = "Multiple Choice";
+            cell9.innerHTML = "MultipleFillInTheBlanks";
+            cell10.innerHTML = "SingleChoice";
+            cell11.innerHTML = "SingleDropDown";
+            cell12.innerHTML = "SubjectiveAnswer";
+            cell13.innerHTML = "Subjective";
+            cell14.innerHTML = "SubjectiveNumerical";
+            cell15.innerHTML = "TrueFalse";
+
+            rowNumber++;
+        }
+
+
+        function getOccurrence(array, value) {
+            return array.filter((v) => (v === value)).length;
+        }
+    </script>
+
+    <script type="text/javascript">
+        // Load google charts
+
+        function playGraph(D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, DM) {
+
+            NowShowTHeBar(" 1", D1);
+
+            NowShowTHeBar(" 2", D2);
+
+            NowShowTHeBar(" 3", D3);
+
+            NowShowTHeBar(" 4", D4);
+
+            NowShowTHeBar(" 5", D5);
+
+            NowShowTHeBar(" 6", D6);
+
+            NowShowTHeBar(" 7", D7);
+
+            NowShowTHeBar(" 8", D8);
+
+            NowShowTHeBar(" 9", D9);
+
+            NowShowTHeBar(" 10", D10);
+
+            NowShowTHeBar(" X", DM);
+
+
+
+
+            var total = D1.length + D2.length + D3.length + D4.length + D5.length + D6.length + D7.length + D8.length + D9.length + D10.length + DM.length;
+
+
+        }
+
+        function NowShowTHeBar(aa, dd) {
+            //console.log(aa, dd);
+            myFunctionpp(aa, dd, dd.length);
+        }
+    </script>
+
+    <script>
+        var D1 = [];
+        var D2 = [];
+        var D3 = [];
+        var D4 = [];
+        var D5 = [];
+        var D6 = [];
+        var D7 = [];
+        var D8 = [];
+        var D9 = [];
+        var D10 = [];
+        var DM = [];
+
+        var firebaseConfig = {
+            apiKey: "AIzaSyDEfDH95XFqiuJagebabQbXvxoUM020Kwg",
+            authDomain: "mmpquestion.firebaseapp.com",
+            databaseURL: "https://mmpquestion.firebaseio.com",
+            projectId: "mmpquestion",
+            storageBucket: "mmpquestion.appspot.com",
+            messagingSenderId: "921442048363",
+            appId: "1:921442048363:web:6bad643eec42a5dc06142e"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        var db = firebase.firestore();
+
+        var dataNumber = 0
+
+        function play() {
+            if (dataNumber >= dataArray.length) {
+                return;
+            } else {
+                var searchID = dataArray[dataNumber];
+                /*                console.log(dataNumber)
+                                console.log(searchID)*/
+                dataNumber++;
+
+                //db.collection("QuestionProper").where("IdNumber", "==", 1274016)
+
+                myFunctionpp(searchID, ", ")
+                db.collection("QuestionProper").where("Temp_info.QuestionID", "==", searchID)
+                    .limit(500)
+                    .get()
+                    .then(function(querySnapshot) {
+                        querySnapshot.forEach(function(doc) {
+                            switch (doc.data().QuestionInfo.Difficulty) {
+                                case 1:
+                                    D1.push(doc.data().QuestionInfo.Subtype);
+                                    break;
+                                case 2:
+                                    D2.push(doc.data().QuestionInfo.Subtype);
+                                    break;
+                                case 3:
+                                    D3.push(doc.data().QuestionInfo.Subtype);
+                                    break;
+                                case 4:
+                                    D4.push(doc.data().QuestionInfo.Subtype);
+                                    break;
+                                case 5:
+                                    D6.push(doc.data().QuestionInfo.Subtype);
+                                    break;
+                                case 6:
+                                    D6.push(doc.data().QuestionInfo.Subtype);
+                                    break;
+                                case 7:
+                                    D7.push(doc.data().QuestionInfo.Subtype);
+                                    break;
+                                case 8:
+                                    D8.push(doc.data().QuestionInfo.Subtype);
+                                    break;
+                                case 9:
+                                    D9.push(doc.data().QuestionInfo.Subtype);
+                                    break;
+                                case 10:
+                                    D10.push(doc.data().QuestionInfo.Subtype);
+                                    break;
+                                default:
+                                    DM.push(doc.data().QuestionInfo.Subtype);
+                                    break;
+
+                            }
+
+                        });
+                        playGraph(D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, DM);
+                        play();
+
+                    })
+                    .catch(function(error) {
+                        alert('Error re run');
+                        console.log("Error getting documents: ", error);
+                    });
+
+            }
+
+        }
+    </script>
+
+
+</body></html>
