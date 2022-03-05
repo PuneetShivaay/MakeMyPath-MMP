@@ -1,0 +1,65 @@
+name: flutter_onboarding_ui
+description: A new Flutter project.
+
+version: 1.22.6
+
+environment:
+sdk: ">=2.6.0 <3.0.0"
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+  contactus: ^1.1.7
+  settings_ui: ^0.5.0
+  url_launcher: ^5.7.10
+  expandable: ^4.1.4
+  webview_flutter: ^1.0.7
+  fl_chart: ^0.12.2
+  syncfusion_flutter_charts: ^18.4.39
+  pie_chart: ^4.0.1
+  charts_flutter: ^0.9.0
+  google_fonts: ^0.5.0+1
+  font_awesome_flutter: ^8.11.0
+  rive: ^0.6.7
+  lottie: ^0.7.0+1
+  animations: ^1.1.2
+  flip_panel: ^1.0.1
+
+
+
+
+
+
+
+
+
+
+
+
+  cupertino_icons: ^0.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+   - assets/images/onboarding/
+   - assets/images/splash/
+   - assets/images/bookSuggestion/
+
+
+  fonts:
+   - family: CM Sans Serif
+     fonts:
+       - asset: assets/fonts/cm_sans_serif_2012.ttf   
+   - family: Century Gothic
+     fonts:
+       - asset: assets/fonts/Century_Gothic_400.ttf
+       
