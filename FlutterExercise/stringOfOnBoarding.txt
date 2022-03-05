@@ -1,0 +1,16 @@
+class StingOfOnBoarding{
+    String Heading1 = 'Heelo';
+    String Heading2 = 'Heelo';
+    String Heading3 = 'Heelo';
+    String Heading4 = 'Heelo';
+
+        String subLine1 = 'Heelo';
+    String subLine2 = 'Heelo';
+    String subLine3 = 'Heelo';
+    String subLine4 = 'Heelo';
+    StingOfOnBoarding();
+
+    String GetMainHaeding(
+        return Heading1;
+    );
+}

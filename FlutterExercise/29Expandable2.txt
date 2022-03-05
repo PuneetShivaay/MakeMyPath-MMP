@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<!-- Code By Webdevtrick (https://webdevtrick.com) -->
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Bootstrap Expand Cards | Webdevtrick.com</title>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div class='row dashboard-cards'>
+  <div class='card col-md-4 '>
+    <div class='card-title'>
+      <h2>
+About Exam        
+      </h2>
+      <div class='task-count'>
+        +
+      </div>
+    </div>
+    <div class='card-flap flap1'>
+      <div class='card-description'>
+        <ul class='task-list'>
+          <li>
+            1st Inner Sectgjfyxxxxxxxxxxxxxxxuimtitm7m97,97s,8nsn8m8kme5m nbg jchg kcifbnKLNvom rejvtoeirvhoih brah baihio ba;oiehjriohj bHIOHERCWH RVIHEThpohfoiehg;ahoiihriohogithoiahgoihoigion Task
+           
+          </li>
+          <li>
+            2nd Inner Section Task
+            <span>11%</span>
+          </li>
+          <li>
+            3rd Inner Section Task
+            <span>100%</span>
+          </li>
+          <li>
+            4th Inner Section Task
+            <span>7%</span>
+          </li>
+        </ul>
+      </div>
+      <div class='card-flap flap2'>
+        <div class='card-actions'>
+          <a class='btn' href='#'>Close</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='card col-md-4 '>
+    <div class='card-title'>
+      <h2>
+        Second Task
+             </h2>
+      <div class='task-count'>
+        62
+      </div>
+    </div>
+    <div class='card-flap flap1'>
+      <div class='card-description'>
+        <ul class='task-list'>
+          <li>
+            1st Inner Section Task
+            <span>59%</span>
+          </li>
+          <li>
+            2nd Inner Section Task
+            <span>11%</span>
+          </li>
+          <li>
+            3rd Inner Section Task
+            <span>100%</span>
+          </li>
+          <li>
+            4th Inner Section Task
+            <span>7%</span>
+          </li>
+        </ul>
+      </div>
+      <div class='card-flap flap2'>
+        <div class='card-actions'>
+          <a class='btn' href='#'>Close</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='card col-md-4 '>
+    <div class='card-title'>
+      <h2>
+        Third Task
+        <small>You have 9 pending tasks</small>
+      </h2>
+      <div class='task-count'>
+        9
+      </div>
+    </div>
+    <div class='card-flap flap1'>
+      <div class='card-description'>
+        <ul class='task-list'>
+          <li>
+            1st Inner Section Task
+            <span>59%</span>
+          </li>
+          <li>
+            2nd Inner Section Task
+            <span>11%</span>
+          </li>
+          <li>
+            3rd Inner Section Task
+            <span>100%</span>
+          </li>
+          <li>
+            4th Inner Section Task
+            <span>7%</span>
+          </li>
+        </ul>
+      </div>
+      <div class='card-flap flap2'>
+        <div class='card-actions'>
+          <a class='btn' href='#'>Close</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='card col-md-4 '>
+    <div class='card-title'>
+      <h2>
+        Fourth Task
+        <small>You have 56 pending tasks</small>
+      </h2>
+      <div class='task-count'>
+        56
+      </div>
+    </div>
+    <div class='card-flap flap1'>
+      <div class='card-description'>
+        <ul class='task-list'>
+          <li>
+            1st Inner Section Task
+            <span>59%</span>
+          </li>
+          <li>
+            2nd Inner Section Task
+            <span>11%</span>
+          </li>
+          <li>
+            3rd Inner Section Task
+            <span>100%</span>
+          </li>
+          <li>
+            4th Inner Section Task
+            <span>7%</span>
+          </li>
+        </ul>
+      </div>
+      <div class='card-flap flap2'>
+        <div class='card-actions'>
+          <a class='btn' href='#'>Close</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='card col-md-4 '>
+    <div class='card-title'>
+      <h2>
+        Fifth Task
+        <small>You have 12 pending tasks</small>
+      </h2>
+      <div class='task-count'>
+        12
+      </div>
+    </div>
+    <div class='card-flap flap1'>
+      <div class='card-description'>
+        <ul class='task-list'>
+          <li>
+            1st Inner Section Task
+            <span>59%</span>
+          </li>
+          <li>
+            2nd Inner Section Task
+            <span>11%</span>
+          </li>
+          <li>
+            3rd Inner Section Task
+            <span>100%</span>
+          </li>
+          <li>
+            4th Inner Section Task
+            <span>7%</span>
+          </li>
+        </ul>
+      </div>
+      <div class='card-flap flap2'>
+        <div class='card-actions'>
+          <a class='btn' href='#'>Close</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='card col-md-4 '>
+    <div class='card-title'>
+      <h2>
+        Sixth Task
+        <small>You have 24 pending tasks</small>
+      </h2>
+      <div class='task-count'>
+        24
+      </div>
+    </div>
+    <div class='card-flap flap1'>
+      <div class='card-description'>
+        <ul class='task-list'>
+          <li>
+            1st Inner Section Task
+            <span>59%</span>
+          </li>
+          <li>
+            2nd Inner Section Task
+            <span>11%</span>
+          </li>
+          <li>
+            3rd Inner Section Task
+            <span>100%</span>
+          </li>
+          <li>
+            4th Inner Section Task
+            <span>7%</span>
+          </li>
+        </ul>
+      </div>
+      <div class='card-flap flap2'>
+        <div class='card-actions'>
+          <a class='btn' href='#'>Close</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'>
+</script><script  src="function.js"></script>
+<script>
+// Code By Webdevtrick (https://webdevtrick.com)
+$(document).ready(function(){
+  var zindex = 10;
+  
+  $("div.card").click(function(e){
+    e.preventDefault();
+
+    var isShowing = false;
+
+    if ($(this).hasClass("d-card-show")) {
+      isShowing = true
+    }
+
+    if ($("div.dashboard-cards").hasClass("showing")) {
+      $("div.card.d-card-show")
+        .removeClass("d-card-show");
+
+      if (isShowing) {
+        $("div.dashboard-cards")
+          .removeClass("showing");
+      } else {
+        $(this)
+          .css({zIndex: zindex})
+          .addClass("d-card-show");
+
+      }
+
+      zindex++;
+
+    } else {
+      $("div.dashboard-cards")
+        .addClass("showing");
+      $(this)
+        .css({zIndex:zindex})
+        .addClass("d-card-show");
+
+      zindex++;
+    }
+    
+  });
+});
+</script>
+</body>
+
+<style>
+
+/* Code By Webdevtrick (https://webdevtrick.com) */
+body {
+background-image: url("https://erdr.in/wp-content/uploads/2021/01/7.png");
+   background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+  padding: 30px 20px;
+}
+
+.dashboard-cards {
+  position: relative;
+  padding-bottom: 50px;
+  margin: 0 !important;
+}
+
+.dashboard-cards .card {
+  background: #ffffff;
+  display: inline-block;
+  -webkit-perspective: 1000;
+  perspective: 1000;
+  z-index: 20;
+  padding: 0 !important;
+  margin: 5px 5px 10px 5px;
+  position: relative;
+  text-align: left;
+  transition: all 0.3s 0s ease-in;
+  z-index: 1;
+  width: calc(33.33333333% - 10px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dashboard-cards .card:hover {
+  box-shadow: 0 15px 10px -10px rgba(31, 31, 31, 0.5);
+  transition: all 0.3s ease;
+}
+
+.dashboard-cards .card .card-title {
+  background: #ffffff;
+  padding: 20px 15px;
+  position: relative;
+  z-index: 0;
+}
+
+.dashboard-cards .card .card-title h2 {
+  font-size: 16px;
+  letter-spacing: -0.05em;
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard-cards .card .card-title h2 small {
+  display: block;
+  font-size: 14px;
+  margin-top: 8px;
+  letter-spacing: -0.025em;
+}
+
+.dashboard-cards .card .card-description {
+  position: relative;
+  font-size: 14px;
+  border-top: 1px solid #ddd;
+  padding: 10px 15px 0 15px;
+}
+
+.dashboard-cards .card .card-actions {
+  box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.075);
+  padding: 10px;
+  text-align: center;
+}
+
+.dashboard-cards .card .card-flap {
+  background: #d9d9d9;
+  position: absolute;
+  width: 100%;
+  -webkit-transform-origin: top;
+  transform-origin: top;
+  -webkit-transform: rotateX(-90deg);
+  transform: rotateX(-90deg);
+}
+
+.dashboard-cards .card .flap1 {
+  transition: all 0.3s 0.3s ease-out;
+  z-index: -1;
+}
+
+.dashboard-cards .card .flap2 {
+  transition: all 0.3s 0s ease-out;
+  z-index: -2;
+}
+
+.dashboard-cards.showing .card {
+  cursor: pointer;
+  opacity: 0.6;
+  -webkit-transform: scale(0.88);
+  transform: scale(0.88);
+}
+
+.dashboard-cards .no-touch .dashboard-cards.showing .card:hover {
+  opacity: 0.94;
+  -webkit-transform: scale(0.92);
+  transform: scale(0.92);
+}
+
+.dashboard-cards .card.d-card-show {
+  opacity: 1 !important;
+  -webkit-transform: scale(1) !important;
+  transform: scale(1) !important;
+}
+
+.dashboard-cards .card.d-card-show .card-flap {
+  background: #ffffff;
+  -webkit-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+}
+
+.dashboard-cards .card.d-card-show .flap1 {
+  transition: all 0.3s 0s ease-out;
+}
+
+.dashboard-cards .card.d-card-show .flap2 {
+  transition: all 0.3s 0.2s ease-out;
+}
+
+.dashboard-cards .card .task-count {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 22px;
+  right: 10px;
+  background: #ecf0f1;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 100%;
+  color: #333333;
+  font-weight: 600;
+  transition: all .2s ease;
+}
+
+.dashboard-cards .task-list {
+  padding: 0 !important;
+}
+
+.dashboard-cards .task-list li {
+  padding: 10px 0;
+  padding-left: 10px;
+  margin: 3px 0;
+  list-style-type: none;
+  border-bottom: 1px solid #e9ebed;
+  border-left: 3px solid #ff3a3a;
+  transition: all .2s ease;
+}
+
+.dashboard-cards .task-list li:hover {
+  background: #ecf0f1;
+  transition: all .2s ease;
+}
+
+.dashboard-cards .task-list li span {
+  float: right;
+  color: #ff3a3a;
+  margin-right: 5px;
+}
+
+.dashboard-cards.showing .card.d-card-show .task-count {
+  color: #ffffff;
+  background: #ff3a3a;
+  transition: all .2s ease;
+}
+
+.dashboard-cards .card-actions .btn {
+  color: #333;
+}
+
+.dashboard-cards .card-actions .btn:hover {
+  color: #ff3a3a;
+}
+@media (max-width:750px) {
+  .dashboard-cards .card {
+    margin-top: 10px;
+    width: 100%;
+  }
+}
+</style>
+</html>

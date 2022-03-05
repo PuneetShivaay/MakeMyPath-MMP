@@ -1,0 +1,58 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MaterialApp(
+          home: Scaffold(
+              body: Center(
+    child: SizedBox(
+      child: Center(
+        child: Stack(
+          alignment: Alignment.center,
+          children: <Widget>[
+            Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: NetworkImage(
+                        'https://erdr.in/wp-content/uploads/2021/01/splashBackground.png'),
+                    fit: BoxFit.cover),
+              ),
+            ),
+            Positioned(
+                width: 150,
+                top: 200,
+                child: Container(
+                  child: Image(
+                      image: NetworkImage(
+                          'https://erdr.in/wp-content/uploads/2021/01/splashLogo.png')),
+                )),
+            Positioned(
+                width: 200,
+                bottom: 200,
+                child: Container(
+                  child: Image(
+                      image: NetworkImage(
+                          'https://erdr.in/wp-content/uploads/2021/01/Splash-1.png')),
+                )),
+            Positioned(
+                width: 200,
+                bottom: 50,
+                child: Container(
+                  child: Text(
+                    'Curated By ER-DR Acad Pvt Ltd',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 12.0,
+                    ),
+                  ),
+                )),
+
+            //Container
+          ], //<Widget>[]
+        ), //Stack
+      ), //Center
+    ), //SizedBox
+  ) //Center
+              ) //Scaffold
+          ) //MaterialApp
+      );
+}

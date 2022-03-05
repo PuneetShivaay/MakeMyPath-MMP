@@ -1,0 +1,71 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(Hello());
+}
+
+class Hello extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(home: Home());
+  }
+}
+
+class Home extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final data = MediaQuery.of(context);
+
+    return Scaffold(
+      body: Center(
+        child: SizedBox(
+          child: Center(
+            child: Stack(
+              alignment: Alignment.center,
+              children: <Widget>[
+                Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: NetworkImage(
+                            'https://erdr.in/wp-content/uploads/2021/01/splashBackground.png'),
+                        fit: BoxFit.cover),
+                  ),
+                ),
+                Positioned(
+                    width: 150,
+                    top: data.size.height * 0.22,
+                    child: Container(
+                      child: Image(
+                          image: NetworkImage(
+                              'https://erdr.in/wp-content/uploads/2021/01/splashLogo.png')),
+                    )),
+                Positioned(
+                  width:data.size.width*.9,
+                    top: data.size.height * .35,
+                    child: Container(
+                      child: Image(
+                          image: NetworkImage(
+                              'https://erdr.in/wp-content/uploads/2021/01/Splash-1.png')),
+                    )),
+                Positioned(
+                    width: 200,
+                    bottom: data.size.height * .05,
+                    child: Container(
+                      child: Text(
+                        'Curated By ER-DR Acad Pvt Ltd',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 12.0,
+                        ),
+                      ),
+                    )),
+
+                //Container
+              ], //<Widget>[]
+            ), //Stack
+          ), //Center
+        ), //SizedBox
+      ), //Center
+    ); //Scaffold
+  }
+}

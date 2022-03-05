@@ -1,0 +1,182 @@
+import 'package:flutter/material.dart';
+
+void main()=> runApp(Practice());
+
+class Practice extends StatefulWidget {
+  @override
+  _PracticeState createState() => _PracticeState();
+}
+
+class _PracticeState extends State<Practice> {
+  bool valuefirst = false;
+  bool valuesecond = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Practics Page'),
+        ),
+        body: Container(
+          constraints: BoxConstraints.expand(),
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: NetworkImage(
+                  "https://erdr.in/wp-content/uploads/2021/01/7.png"),
+              fit: BoxFit.fill,
+            ),
+          ),
+            child: Column(
+          children: <Widget>[
+            Text('MAKE MY PRACTICE',style: TextStyle(fontSize: 20.0), ),  
+                Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                      height: 40,
+                      width: 100,
+                      margin: EdgeInsets.all(5),
+                      decoration: new BoxDecoration(
+                        borderRadius: BorderRadius.circular(6),
+                        gradient: new LinearGradient(
+                          colors: [Colors.yellow, Colors.white],
+                          begin: FractionalOffset.centerLeft,
+                          end: FractionalOffset.centerRight,
+                        ),
+                      ),
+                      child: TextButton(
+                        child: new Text(
+                          "PHYSICS",
+                          style: TextStyle(color: Colors.black),
+                          textAlign: TextAlign.center,
+                        ),
+                        onPressed: () {
+                          /*
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Physics()),
+                      );*/
+                        },
+                      ),
+                    ),
+                    Container(
+                      height: 40,
+                      width: 100,
+                      margin: EdgeInsets.all(5),
+                      decoration: new BoxDecoration(
+                        borderRadius: BorderRadius.circular(6),
+                        gradient: new LinearGradient(
+                          colors: [Colors.white, Colors.blue],
+                          begin: FractionalOffset.centerLeft,
+                          end: FractionalOffset.centerRight,
+                        ),
+                      ),
+                      child: TextButton(
+                        child: new Text(
+                          "CHEMISTRY",
+                          style: TextStyle(color: Colors.black),
+                          textAlign: TextAlign.center,
+                        ),
+                        onPressed: () {
+                          /*
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Chemistry()),
+                      ); */
+                        },
+                      ),
+                    ),
+                    Container(
+                      height: 40,
+                      width: 100,
+                      margin: EdgeInsets.all(5),
+                      decoration: new BoxDecoration(
+                        borderRadius: BorderRadius.circular(6),
+                        gradient: new LinearGradient(
+                          colors: [Colors.yellow, Colors.white],
+                          begin: FractionalOffset.centerLeft,
+                          end: FractionalOffset.centerRight,
+                        ),
+                      ),
+                      child: TextButton(
+                        child: new Text(
+                          "BIOLOGY",
+                          style: TextStyle(color: Colors.black),
+                          textAlign: TextAlign.center,
+                        ),
+                        onPressed: () {
+                          /*
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Biology()),
+                      );  */
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            
+            
+            
+            Row(
+              children: <Widget>[
+                SizedBox(
+                  width: 10,
+                ),
+                IconButton(
+                  icon: Icon(Icons.help),
+                  tooltip: 'thiss is informatio of Vector',
+                ),
+                Text(
+                  'Units And Measurement ',
+                  style: TextStyle(fontSize: 17.0),
+                ),
+                Checkbox(
+                  checkColor: Colors.greenAccent,
+                  activeColor: Colors.red,
+                  value: this.valuefirst,
+                  onChanged: (bool value) {
+                    setState(() {
+                      this.valuefirst = value;
+                    });
+                  },
+                ),
+              ],
+            ),
+            Row(
+              children: <Widget>[
+                SizedBox(
+                  width: 10,
+                ),
+                IconButton(
+                  icon: Icon(Icons.help),
+                  tooltip: 'thiss is informatio of Vector',
+                ),
+                Text(
+                  'Unit ',
+                  style: TextStyle(fontSize: 17.0),
+                ),
+                Checkbox(
+                  checkColor: Colors.greenAccent,
+                  activeColor: Colors.red,
+                  value: this.valuesecond,
+                  onChanged: (bool value) {
+                    setState(() {
+                      this.valuesecond = value;
+                    });
+                  },
+                ),
+              ],
+            ),
+          ],
+        )),
+      ),
+    );
+  }
+}

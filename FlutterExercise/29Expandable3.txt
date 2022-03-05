@@ -1,0 +1,171 @@
+<main>
+    <details>
+   		<summary role="button" tabindex="0">
+    		About Exam
+    	</summary>
+		<div>
+    		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt fermentum tortor at efficitur. Praesent ultriximus pulvinar, enim metus mollis quam, id posuere nisi mi nec lacus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur <a href="/">i am a link</a>, duis tincidunt rutrum neque, sit amet laoreet risus blandit vitae. Suspendisse vitae elit maximus, vehicula diam vel, laoreet ligula. Aliquam iaculis diam id aulus blandit sem scelerisque facilisis.
+    		</p>
+    	</div>
+	</details>
+	<details>
+    	<summary role="button" tabindex="0">
+			Eligiblity
+		</summary>
+        <div>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt fermentum tortor at efficitur. Praesent ultricies ipsum eu hendrerit euismod. Morbi tristique, ligula et maximus pulvinar, enim metus mollis quam, id posuere nisi mi nec lacus.</p>
+<p> Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis tincidunt rutrum neque, sit amet laoreet risus blandit vitae. Suspendisse vitae elit maximus, vehicula diam vel, laoreet ligula. Aliquam iaculis diam id augue gravid.</p>
+        </div>
+    </details>
+	<details>
+    	<summary role="button" tabindex="0">
+Age Limit
+		</summary>
+    	<div>	
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt fermentum tortor at efficitur. Praesent ultricies ipsum eu hendrerit euismod. Morbi tristique, ligula et maximus pulvinar, enim metus mollis quam, id posuere nisi mi nec lacus. Orci lerisque eu lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras ultricies felis justo, iaculis vehicula massa semper sed.
+            </p>
+        </div>
+    </details>
+    <details>
+		<summary role="button" tabindex="0">
+ 		No of Attempts
+		</summary>
+		<div>
+           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt fermentum tortor at efficitur.</p>
+			<p>Praesent ultricies ipsum eu hendrerit euismod. Morbi tristique, ligula et maximus pulvinar, enim metus mollis quam, id posuere nisi mi ne.
+            </p>
+        </div>
+    </details>
+</main>
+
+
+
+
+
+
+####Style########
+
+
+
+
+
+
+
+
+
+// Colors
+$grey-light: #f0f4f9;
+$grey: darken($grey-light, 20%);
+$blue: #1e90ff;
+$orange: #ff5321;
+
+// Defaults
+$box-shadow: 0 15px 35px rgba(50, 50, 93, .1), 0 5px 15px rgba(0, 0, 0, .07);
+$border-radius: .3em;
+
+@keyframes expand {
+  0%    {opacity: 0; max-height: 0; }
+  100%  {opacity: 1; max-height: 30em; }
+}
+
+// Basic setup
+html {
+	overflow-y: scroll;
+}
+
+body {
+	position: relative;
+ background-image: url("https://erdr.in/wp-content/uploads/2021/01/7.png");
+   background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */	line-height: 1.6;
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
+main {
+	display: block; /* IE */
+	width: 70%; max-width: 50em;
+	margin: 3em auto;
+}
+
+p { 
+	margin: 0;
+}
+
+p + p { 
+	margin-top: 1.5em;
+}
+
+a { 
+	color: $blue;
+}
+
+details > div {
+	position: relative;
+	z-index: 20;
+	padding: 1.25em 1.5em;
+	margin-bottom: .6em;
+	border-radius: $border-radius;
+	box-shadow: $box-shadow;
+	background-color: white;
+	// animation: expand .2s ease-in-out;
+}
+
+// Details & Summary
+summary {
+	position: relative;
+	z-index: 10;
+	display: block;
+	background: white;
+	padding-left: 3em;
+	margin-bottom: .5em;
+	font-size: 1.0em;
+	line-height: 3;
+	box-sizing: border-box; 
+	list-style: none;
+	cursor: pointer;
+	border-radius: $border-radius;
+	box-shadow: $box-shadow;
+}
+
+summary:hover,
+summary:focus {
+	background: $blue;
+	color: white;
+	text-shadow: 0 -1px 0 rgba(black, .5);
+	outline: 0;
+}
+
+summary::-webkit-details-marker {
+	display: none
+}
+
+summary::before {
+	content: '+';
+	position: absolute;
+	top: 50%; 
+	left: 1em;
+	transform: translateY(-50%);
+	width: 1em; 
+	height: 1em;
+	margin-right: 1em;
+	background: $orange;
+	color: white;
+	font-family: Arial, sans-serif;
+	font-size: 20px;
+	line-height: 1;
+	text-align: center;
+	border-radius: 50%;	
+}
+
+details[open] summary::before {
+	content: '-';
+	line-height: .9;
+}
+
+details[open] summary:hover::before,
+details[open] summary:focus::before {
+	background: white;
+	color: $blue;
+}
+

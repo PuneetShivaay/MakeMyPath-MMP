@@ -1,0 +1,56 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MaterialApp(
+          home: Scaffold(
+              body: Center(
+    child: SizedBox(
+      child: Center(
+        child: Stack(
+          alignment: Alignment.center,
+          children: <Widget>[
+            Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                    //BackgroundImage
+                    image: NetworkImage(
+                        'https://erdr.in/wp-content/uploads/2021/01/9-january-1.png'),
+                    fit: BoxFit.cover),
+              ),
+            ),
+            Positioned(
+              top: 10,
+              right: 4,
+              child: new FlatButton(
+                onPressed: () {
+                  print('Skip Pressed');
+                },
+                shape: new RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(30.0)),
+                child: new Text('Skip',
+                    style: new TextStyle(
+                        color: Colors.black,
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.bold)),
+              ),
+            ),
+            Positioned(
+                width: 250,
+                top: 100,
+                child: Container(                  
+                  child: Image(
+                      //TextImage
+                      image: NetworkImage(
+                          'https://erdr.in/wp-content/uploads/2021/01/final-walk-through-11.png')),
+                )),
+            
+               
+          ], //<Widget>[]
+        ), //Stack
+      ), //Center
+    ), //SizedBox
+  ) //Center
+              ) //Scaffold
+          ) //MaterialApp
+      );
+}
