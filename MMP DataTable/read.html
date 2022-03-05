@@ -1,0 +1,235 @@
+<!-- look at line 222 in Create Table Function -->
+
+<body>
+    <div id="myDynamicTable"></div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.5/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+    var fCode = [];
+    var cCOde = [];
+</script>
+
+<script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-firestore.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-database.js"></script>
+
+<script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+        apiKey: "AIzaSyABq8nxG1EtBXk2jKTZgj67kLoIwmswtig",
+        authDomain: "mmpquestiondatabase.firebaseapp.com",
+        databaseURL: "https://mmpquestiondatabase-default-rtdb.firebaseio.com",
+        projectId: "mmpquestiondatabase",
+        storageBucket: "mmpquestiondatabase.appspot.com",
+        messagingSenderId: "454789438168",
+        appId: "1:454789438168:web:6b245cbb21661da57915ad",
+        measurementId: "G-SB8SP5HHX9"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    var database = firebase.database();
+</script>
+
+
+<input type="file" id="input" accept=".xls,.xlsx,.ods">
+<pre id="result"></pre>
+<script>
+    $("#input").on("change", function (e) {
+        console.log('Uploading the file. Please Wait..');
+
+        var file = e.target.files[0];
+        if (!file) return;
+
+        var FR = new FileReader();
+        FR.onload = function (e) {
+            var data = new Uint8Array(e.target.result);
+            var workbook = XLSX.read(data, {
+                type: 'array'
+            });
+            var firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+
+            var result = XLSX.utils.sheet_to_json(firstSheet, {
+                header: 1
+            });
+
+
+            for (var i = 0; i < result.length; i++) {
+                fCode.push(result[i][0]);
+                cCOde.push(result[i][1]);
+            }
+            console.log('File has been uploaded, Now You Can Search the Code');
+            //console.log(cCOde);
+
+            //getAllIndexes(cCOde,"C-AZWQ");
+            //console.log(cCOde.indexOf('C-AZWQ'))
+        };
+        FR.readAsArrayBuffer(file);
+    });
+</script>
+
+<input type="text" id="fname" name="fname" value="">
+
+<button type="button" onclick="readText()">Search the Code!</button>
+
+<button type="button" onclick="addTable()">Create Table</button>
+
+
+<script>
+    function jsonConcat(o1, o2) {
+        for (var key in o2) {
+            o1[key] = o2[key];
+        }
+        return o1;
+    }
+
+    function readText() {
+        var finalJson = {};
+        var numberFound = 0;
+        var numberFetch = 0;
+        var text = document.getElementById('fname').value;
+        console.log(document.getElementById('fname').value);
+        var fcodeListIn = [];
+        var allQuestionAray = []
+        for (var i = 0; i < (text.length) / 7; i++) {
+            var resultArray = getAllIndexes(cCOde, text.substr((i) * 7, 6));
+            numberFound = numberFound + resultArray.length;
+            for (var j = 0; j < resultArray.length; j++) {
+                fcodeListIn.push(fCode[resultArray[j]]);
+                var starCountRef = firebase.database().ref('Version1/DataBase/QuestionInTag/' + fcodeListIn[j]);
+                starCountRef.on('value', (snapshot) => {
+                    numberFetch++;
+                    const data = snapshot.val();
+                    if (data != null) {
+                        finalJson = jsonConcat(finalJson, data);
+                    }
+                    if (numberFetch == numberFound) {
+                        // console.clear();
+                        console.log(finalJson);
+
+                        // Matching Value with 'J'
+                        for (var key in finalJson) {
+                            let str = (finalJson[key]);
+                            if (str.charAt(0) == 'J') {
+                                // console.log(finalJson[key]);
+                                var jData = finalJson[key];
+                                // console.log(jData);
+                                countValues(jData)
+                            } else {
+                                console.log("Not Found J");
+                            }
+                        }
+                    }
+                });
+            }
+        }
+        console.log(countArray);
+    }
+</script>
+<script>
+    function getAllIndexes(arr, val) {
+        var indexes = [],
+            i = -1;
+        while ((i = arr.indexOf(val, i + 1)) != -1) {
+            indexes.push(i);
+        }
+        return indexes;
+    }
+</script>
+
+<script>
+    var countArray = [];
+
+    function countValues(jData) {
+        var last2 = jData.slice(-2);
+        letters = "PONMLKJIHGFEDCBA";
+        for (var i = letters.length; i--;) {
+            for (var j = letters.length; j--;) {
+                var comb = (letters[i] + letters[j]);
+                if (comb == last2) {
+                    countArray.push(last2);
+                } else {
+                    continue;
+                }
+            }
+        }
+        arrayCount(countValues)
+    }
+</script>
+
+
+<script>
+    // finalArray which holds desired output
+    var finalArray = [];
+
+    function arrayCount(countValues) {
+        var counts = {};
+        countArray.forEach(function (x) {
+            counts[x] = (counts[x] || 0) + 1;
+        });
+        console.log(counts);
+        //  document.write(JSON.stringify(counts) + "<br>");
+        finalArray = JSON.stringify(counts);
+    }
+    document.write(finalArray);
+</script>
+<script>
+    // TempArray for all possible combination of A to P
+    var tempArray = [];
+
+    function wasteArray() {
+        tletters = "PONMLKJIHGFEDCBA";
+        for (var i = tletters.length; i--;) {
+            for (var j = tletters.length; j--;)
+                tempArray.push(tletters[i] + tletters[j]);
+        }
+        console.log(tempArray);
+
+    }
+</script>
+
+
+
+<script>
+    function addTable() {
+        var myTableDiv = document.getElementById("myDynamicTable");
+
+        var table = document.createElement('TABLE');
+        table.border = '1';
+
+        var tableBody = document.createElement('TBODY');
+        table.appendChild(tableBody);
+
+        var letters = "PONMLKJIHGFEDCBA";
+
+        for (var i = letters.length; i--;) {
+            var tr = document.createElement('TR');
+            tableBody.appendChild(tr);
+
+            for (var j = letters.length; j--;) {
+                var td = document.createElement('TD');
+                var comb = (letters[i] + letters[j]);
+                if (comb == 'DG') { // how compare value and write count value in cell
+                    td.appendChild(document.createTextNode(comb));
+                } else {
+                    td.appendChild(document.createTextNode(0));
+                }
+                td.width = '75';
+
+                tr.appendChild(td);
+            }
+        }
+        myTableDiv.appendChild(table);
+    }
+    // addTable();
+</script>

@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-firestore.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+    <style>
+        .customers {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .customers td,
+        .customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        .customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .customers tr:hover {
+            background-color: #ddd;
+        }
+
+        .customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="playBefore()">FIND</button>
+    <!--find Button-->
+
+    <table class="customers" id="customers10">
+        <!--class name and id-->
+
+
+    </table>
+
+
+    <script>
+        var fArray = []; //<!--array stores category tag and data -->
+
+        fArray.push("4"); fArray.push("CBSE--7th CBSE--Science--Physics--Winds, Storms and Cyclones--Thunderstorms and Cyclones");
+
+
+        var codesArray = []
+        count = 0;
+        var codeByTeacher;
+
+        function playBefore() {
+
+            console.log(fArray[0]);
+            for (var i = 0; i < fArray.length; i = i + 2) {
+                console.log(fArray[i]);
+                if (codesArray.includes(fArray[i])) {
+                    //console.log(true);
+                } else {
+                    codesArray.push(fArray[i]);
+                    // console.log(false);
+                }
+            }
+            console.log(codesArray);
+
+
+            runMyDataArray(count)
+
+        }
+
+        function runMyDataArray(count) {
+            if (count >= codesArray.length) {
+                console.log("runMyDataArray return", count)
+                return;
+            } else {
+                codeByTeacher = codesArray[count];
+                dataArray = [];
+                for (var i = 1; i < fArray.length; i = i + 2) {
+
+                    if (fArray[i - 1] == codesArray[count]) {
+                        //console.log(codesArray[count], fArray[i])
+                        dataArray.push(fArray[i]);
+                    }
+                }
+                console.log(dataArray);
+                nameOfTOpic(dataArray[0]);
+                heading()
+
+            }
+            play();
+        }
+        var dataArray = [];
+    </script>
+    <script>
+        var dataArray = [];
+        var rowNumber = 0;
+        var numberOfTImesTheFunctionWasHit = 0;
+        var finalTableELemenrtCount = 0
+
+        function nameOfTOpic(nameOfTOpic) {
+
+            var table = document.getElementById("customers10");
+            var row = table.insertRow(rowNumber);
+            var cell1 = row.insertCell(0);
+
+            cell1.innerHTML = nameOfTOpic;
+            rowNumber++;
+        }
+
+
+        //var rName = dataArray[0].valueOf();
+
+        document.getElementById("customers10").innerHTML = dataArray[0];
+        var arrayToStoreTotal = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+        function myFunctionpp(aa, pp, kk) {
+            numberOfTImesTheFunctionWasHit++
+
+            if (numberOfTImesTheFunctionWasHit - 2 >= (dataArray.length - 1) * 12) {
+
+                finalTableELemenrtCount++;
+
+                var table = document.getElementById("customers10");
+                var row = table.insertRow(rowNumber);
+                var cell0 = row.insertCell(0);
+                var cell1 = row.insertCell(1);
+                var cell2 = row.insertCell(2);
+                var cell3 = row.insertCell(3);
+                var cell4 = row.insertCell(4);
+                var cell5 = row.insertCell(5);
+                var cell6 = row.insertCell(6);
+                var cell7 = row.insertCell(7);
+                var cell8 = row.insertCell(8);
+                var cell9 = row.insertCell(9);
+                var cell10 = row.insertCell(10);
+                var cell11 = row.insertCell(11);
+                var cell12 = row.insertCell(12);
+                var cell13 = row.insertCell(13);
+                var cell14 = row.insertCell(14);
+                var cell15 = row.insertCell(15);
+
+                cell0.innerHTML = codeByTeacher;
+                cell1.innerHTML = aa;
+                cell2.innerHTML = kk;
+                cell3.innerHTML = getOccurrence(pp, "Assertion");
+                cell4.innerHTML = getOccurrence(pp, "FillInTheBlanks");
+                cell5.innerHTML = getOccurrence(pp, "Integer");
+                cell6.innerHTML = getOccurrence(pp, "MatrixMatchGrid");
+                cell7.innerHTML = getOccurrence(pp, "MatrixMatchSingleChoice");
+                cell8.innerHTML = getOccurrence(pp, "MultipleChoice");
+                cell9.innerHTML = getOccurrence(pp, "MultipleFillInTheBlanks");
+                cell10.innerHTML = getOccurrence(pp, "SingleChoice");
+                cell11.innerHTML = getOccurrence(pp, "SingleDropDown");
+                cell12.innerHTML = getOccurrence(pp, "SubjectiveAnswer");
+                cell13.innerHTML = getOccurrence(pp, "Subjective");
+                cell14.innerHTML = getOccurrence(pp, "SubjectiveNumerical");
+                cell15.innerHTML = getOccurrence(pp, "TrueFalse");
+                i = 0
+                arrayToStoreTotal[i++] = arrayToStoreTotal[i - 1] + kk;
+                arrayToStoreTotal[i++] = arrayToStoreTotal[i - 1] + getOccurrence(pp, "Assertion");
+                arrayToStoreTotal[i++] = arrayToStoreTotal[i - 1] + getOccurrence(pp, "FillInTheBlanks");
+                arrayToStoreTotal[i++] = arrayToStoreTotal[i - 1] + getOccurrence(pp, "Integer");
+                arrayToStoreTotal[i++] = arrayToStoreTotal[i - 1] + getOccurrence(pp, "MatrixMatchGrid");
+                arrayToStoreTotal[i++] = arrayToStoreTotal[i - 1] + getOccurrence(pp, "MatrixMatchSingleChoice");
+                arrayToStoreTotal[i++] = arrayToStoreTotal[i - 1] + getOccurrence(pp, "MultipleChoice");
+                arrayToStoreTotal[i++] = arrayToStoreTotal[i - 1] + getOccurrence(pp, "MultipleFillInTheBlanks");
+                arrayToStoreTotal[i++] = arrayToStoreTotal[i - 1] + getOccurrence(pp, "SingleChoice");
+                arrayToStoreTotal[i++] = arrayToStoreTotal[i - 1] + getOccurrence(pp, "SingleDropDown");
+                arrayToStoreTotal[i++] = arrayToStoreTotal[i - 1] + getOccurrence(pp, "SubjectiveAnswer");
+                arrayToStoreTotal[i++] = arrayToStoreTotal[i - 1] + getOccurrence(pp, "Subjective");
+                arrayToStoreTotal[i++] = arrayToStoreTotal[i - 1] + getOccurrence(pp, "SubjectiveNumerical");
+                arrayToStoreTotal[i++] = arrayToStoreTotal[i - 1] + getOccurrence(pp, "TrueFalse");
+                rowNumber++;
+
+                console.log(finalTableELemenrtCount, getOccurrence(pp, "Subjective"));
+
+
+                if (finalTableELemenrtCount == 11) {
+                    TOTALrow(arrayToStoreTotal)
+                    dataArray = [];
+                    numberOfTImesTheFunctionWasHit = 0;
+                    finalTableELemenrtCount = 0
+                    count++;
+                    dataNumber = 0
+                    //heading();
+                    D0 = [];
+                    D1 = [];
+                    D2 = [];
+                    D3 = [];
+                    D4 = [];
+                    D5 = [];
+                    D6 = [];
+                    D7 = [];
+                    D8 = [];
+                    D9 = [];
+                    D10 = [];
+                    DM = [];
+                    arrayToStoreTotal = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                    runMyDataArray(count);
+                } else {
+                    console.log('Else', finalTableELemenrtCount)
+                }
+
+
+            } else { }
+        }
+
+
+        function TOTALrow(totalNumberArray) {
+            i = 0;
+            var table = document.getElementById("customers10");
+            var row = table.insertRow(rowNumber);
+            var cell0 = row.insertCell(0);
+            var cell1 = row.insertCell(1);
+            var cell2 = row.insertCell(2);
+            var cell3 = row.insertCell(3);
+            var cell4 = row.insertCell(4);
+            var cell5 = row.insertCell(5);
+            var cell6 = row.insertCell(6);
+            var cell7 = row.insertCell(7);
+            var cell8 = row.insertCell(8);
+            var cell9 = row.insertCell(9);
+            var cell10 = row.insertCell(10);
+            var cell11 = row.insertCell(11);
+            var cell12 = row.insertCell(12);
+            var cell13 = row.insertCell(13);
+            var cell14 = row.insertCell(14);
+            var cell15 = row.insertCell(15);
+            cell0.innerHTML = codeByTeacher;
+            cell1.innerHTML = "TOTAL";
+            cell2.innerHTML = totalNumberArray[i++];
+            cell3.innerHTML = totalNumberArray[i++];
+            cell4.innerHTML = totalNumberArray[i++];
+            cell5.innerHTML = totalNumberArray[i++];
+            cell6.innerHTML = totalNumberArray[i++];
+            cell7.innerHTML = totalNumberArray[i++];
+            cell8.innerHTML = totalNumberArray[i++];
+            cell9.innerHTML = totalNumberArray[i++];
+            cell10.innerHTML = totalNumberArray[i++];
+            cell11.innerHTML = totalNumberArray[i++];
+            cell12.innerHTML = totalNumberArray[i++];
+            cell13.innerHTML = totalNumberArray[i++];
+            cell14.innerHTML = totalNumberArray[i++];
+            cell15.innerHTML = totalNumberArray[i++];
+
+            rowNumber++;
+        }
+
+
+
+
+
+        function heading() {
+
+            var table = document.getElementById("customers10");
+            var row = table.insertRow(rowNumber);
+            var cell0 = row.insertCell(0);
+            var cell1 = row.insertCell(1);
+            var cell2 = row.insertCell(2);
+            var cell3 = row.insertCell(3);
+            var cell4 = row.insertCell(4);
+            var cell5 = row.insertCell(5);
+            var cell6 = row.insertCell(6);
+            var cell7 = row.insertCell(7);
+            var cell8 = row.insertCell(8);
+            var cell9 = row.insertCell(9);
+            var cell10 = row.insertCell(10);
+            var cell11 = row.insertCell(11);
+            var cell12 = row.insertCell(12);
+            var cell13 = row.insertCell(13);
+            var cell14 = row.insertCell(14);
+            var cell15 = row.insertCell(15);
+            cell0.innerHTML = "ChapterNumber";
+            cell1.innerHTML = "Level";
+            cell2.innerHTML = "Total";
+            cell3.innerHTML = "Assertion";
+            cell4.innerHTML = "FillInTheBlanks";
+            cell5.innerHTML = "Integer";
+            cell6.innerHTML = "MatrixMatchGrid";
+            cell7.innerHTML = "MatrixMatchSingleChoice";
+            cell8.innerHTML = "Multiple Choice";
+            cell9.innerHTML = "MultipleFillInTheBlanks";
+            cell10.innerHTML = "SingleChoice";
+            cell11.innerHTML = "SingleDropDown";
+            cell12.innerHTML = "SubjectiveAnswer";
+            cell13.innerHTML = "Subjective";
+            cell14.innerHTML = "SubjectiveNumerical";
+            cell15.innerHTML = "TrueFalse";
+
+            rowNumber++;
+        }
+
+
+        function getOccurrence(array, value) {
+            return array.filter((v) => (v === value)).length;
+        }
+    </script>
+
+    <script type="text/javascript">
+        // Load google charts
+
+        function playGraph(D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, DM) {
+
+            NowShowTHeBar(" 1", D1);
+
+            NowShowTHeBar(" 2", D2);
+
+            NowShowTHeBar(" 3", D3);
+
+            NowShowTHeBar(" 4", D4);
+
+            NowShowTHeBar(" 5", D5);
+
+            NowShowTHeBar(" 6", D6);
+
+            NowShowTHeBar(" 7", D7);
+
+            NowShowTHeBar(" 8", D8);
+
+            NowShowTHeBar(" 9", D9);
+
+            NowShowTHeBar(" 10", D10);
+
+            NowShowTHeBar(" X", DM);
+
+
+
+
+            var total = D1.length + D2.length + D3.length + D4.length + D5.length + D6.length + D7.length + D8.length + D9.length + D10.length + DM.length;
+
+
+        }
+
+        function NowShowTHeBar(aa, dd) {
+            //console.log(aa, dd);
+            myFunctionpp(aa, dd, dd.length);
+        }
+    </script>
+
+    <script>
+        var D1 = [];
+        var D2 = [];
+        var D3 = [];
+        var D4 = [];
+        var D5 = [];
+        var D6 = [];
+        var D7 = [];
+        var D8 = [];
+        var D9 = [];
+        var D10 = [];
+        var DM = [];
+
+        var firebaseConfig = {
+            apiKey: "AIzaSyDEfDH95XFqiuJagebabQbXvxoUM020Kwg",
+            authDomain: "mmpquestion.firebaseapp.com",
+            databaseURL: "https://mmpquestion.firebaseio.com",
+            projectId: "mmpquestion",
+            storageBucket: "mmpquestion.appspot.com",
+            messagingSenderId: "921442048363",
+            appId: "1:921442048363:web:6bad643eec42a5dc06142e"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        var db = firebase.firestore();
+
+        var dataNumber = 0
+
+        function play() {
+            if (dataNumber >= dataArray.length) {
+                return;
+            } else {
+                var searchID = dataArray[dataNumber];
+                /*                console.log(dataNumber)
+                                console.log(searchID)*/
+                dataNumber++;
+
+                //db.collection("QuestionProper").where("IdNumber", "==", 1274016)
+
+                myFunctionpp(searchID, ", ")
+                db.collection("QuestionProper").where("Temp_info.QuestionID", "==", searchID)
+                    .limit(500)
+                    .get()
+                    .then(function (querySnapshot) {
+                        querySnapshot.forEach(function (doc) {
+                            switch (doc.data().QuestionInfo.Difficulty) {
+                                case 1:
+                                    D1.push(doc.data().QuestionInfo.Subtype);
+                                    break;
+                                case 2:
+                                    D2.push(doc.data().QuestionInfo.Subtype);
+                                    break;
+                                case 3:
+                                    D3.push(doc.data().QuestionInfo.Subtype);
+                                    break;
+                                case 4:
+                                    D4.push(doc.data().QuestionInfo.Subtype);
+                                    break;
+                                case 5:
+                                    D6.push(doc.data().QuestionInfo.Subtype);
+                                    break;
+                                case 6:
+                                    D6.push(doc.data().QuestionInfo.Subtype);
+                                    break;
+                                case 7:
+                                    D7.push(doc.data().QuestionInfo.Subtype);
+                                    break;
+                                case 8:
+                                    D8.push(doc.data().QuestionInfo.Subtype);
+                                    break;
+                                case 9:
+                                    D9.push(doc.data().QuestionInfo.Subtype);
+                                    break;
+                                case 10:
+                                    D10.push(doc.data().QuestionInfo.Subtype);
+                                    break;
+                                default:
+                                    DM.push(doc.data().QuestionInfo.Subtype);
+                                    break;
+
+                            }
+
+                        });
+                        playGraph(D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, DM);
+                        play();
+
+                    })
+                    .catch(function (error) {
+                        alert('Error re run');
+                        console.log("Error getting documents: ", error);
+                    });
+
+            }
+
+        }
+    </script>
+
+
+</body>
+
+</html>

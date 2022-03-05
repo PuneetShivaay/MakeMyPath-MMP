@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <div id="myDynamicTable"></div>
+
+
+    <script>
+        function addTable() {
+            var myTableDiv = document.getElementById("myDynamicTable");
+
+            var table = document.createElement('TABLE');
+            table.border = '1';
+
+            var tableBody = document.createElement('TBODY');
+            table.appendChild(tableBody);
+
+            var letters = "PONMLKJIHGFEDCBA";
+
+            for (var i = letters.length; i--;) {
+                var tr = document.createElement('TR');
+                tableBody.appendChild(tr);
+
+                for (var j = letters.length; j--;) {
+                    var td = document.createElement('TD');
+                    var comb = (letters[i] + letters[j]);
+                    ss = ['a', 'BB']
+                    for (let k = 0; k < ss.length; k++) {
+
+                        if (comb == ss[k]) {
+                            td.appendChild(document.createTextNode(comb));
+                        } else {
+                            td.appendChild(document.createTextNode(0));
+                        }
+                        td.width = '75';
+
+                        tr.appendChild(td);
+                    }
+                }
+
+            }
+            myTableDiv.appendChild(table);
+        }
+        addTable();
+    </script>
+
+</body>
+
+</html>
