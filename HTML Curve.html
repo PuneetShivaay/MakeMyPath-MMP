@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<title>Web Page Design</title>
+<head>
+    <section class="container">
+  <div class="wave"></div>
+</section>
+<style>
+    .container {
+  position: relative;
+  background: #F3F3F6;
+  height: 50vh;
+}
+
+.wave {
+  position: absolute;
+  height: 250px;
+  width: 100%;
+  background: #F3F3F6;
+  bottom: 0;
+}
+
+.wave::before, .wave::after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 100% 50%;
+}
+
+.wave::before {
+  width: 55%;
+  height: 109%;
+  background-color: #fff;
+  right: -1.5%;
+  top: 60%;
+}
+.wave::after {
+  width: 55%;
+  height: 100%;
+  background-color: #F3F3F6;
+  left: -1.5%;
+  top: 40%;
+}
+</style>
+</head>
+<body>
+<div>Hello, World!</div>
+<div id="div2">Hello, CSS3!</div>
+</body>
+</html>
